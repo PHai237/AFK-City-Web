@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    /* ==========================
+       CƠ BẢN CHO NODE + EXPRESS
+       ========================== */
+
+    "target": "ES2020",                 // JS output version
+    "module": "CommonJS",               // Cho Node.js (dùng require) - hợp với ts-node-dev
+    "moduleResolution": "Node",         // Resolve module kiểu Node
+
+    /* ==========================
+       ĐƯỜNG DẪN SOURCE & BUILD
+       ========================== */
+
+    "rootDir": "./src",                 // File .ts nằm trong thư mục src
+    "outDir": "./dist",                 // File .js build ra dist (cho build production)
+
+    /* ==========================
+       CHẤT LƯỢNG TYPE & HỖ TRỢ
+       ========================== */
+
+    "strict": true,                     // Bật strict mode để type an toàn hơn
+    "esModuleInterop": true,            // Cho phép import default từ CommonJS (import express from "express")
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,               // Bỏ check type trong node_modules cho nhanh
+    "resolveJsonModule": true,          // Cho phép import file .json nếu cần
+
+    /* ==========================
+       ENV NODE
+       ========================== */
+
+    "types": ["node"],                  // Thêm type cho Node.js (process, __dirname, v.v.)
+    "allowSyntheticDefaultImports": true
+  },
+
+  /* ==========================
+     FILE ĐƯỢC BIÊN DỊCH
+     ========================== */
+
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

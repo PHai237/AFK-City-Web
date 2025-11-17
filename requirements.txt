@@ -1,0 +1,53 @@
+# AFK City - Quick Setup Commands
+# File này chỉ để LƯU LỆNH, bạn mở ra copy vào terminal để setup máy mới.
+
+==========================
+BACKEND (server/)
+==========================
+
+# 1. Vào thư mục backend
+cd server
+
+# 2. Khởi tạo package.json (chỉ cần 1 lần duy nhất cho project này)
+npm init -y
+
+# 3. Cài dependencies chính cho backend
+npm install express cors dotenv jsonwebtoken bcrypt prisma @prisma/client socket.io morgan
+
+# 4. Cài devDependencies (TypeScript + types)
+npm install -D typescript ts-node-dev @types/node @types/express @types/jsonwebtoken @types/bcrypt @types/cors @types/morgan
+
+# 5. Khởi tạo Prisma (chỉ 1 lần)
+npx prisma init
+
+
+==========================
+FRONTEND (client/)
+==========================
+
+# 1. Quay lại root rồi vào client
+cd ..
+cd client
+
+# 2. Tạo Vite React TS app (CHỈ cần lần đầu, nếu chưa có client/)
+npm create vite@latest . -- --template react-ts
+
+# 3. Cài thêm các thư viện frontend
+npm install react-router-dom axios socket.io-client
+
+# 4. Dev dependencies bổ sung
+npm install -D @types/react-router-dom
+
+
+==========================
+ROOT (afk-city-web/) OPTIONAL
+==========================
+
+# 1. Quay lại root (nếu đang ở client)
+cd ..
+
+# 2. Cài concurrently để sau này chạy server + client cùng lúc
+npm install -D concurrently
+
+# 3. (Sau này) Thêm script "dev" trong package.json ở root:
+#    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\""
